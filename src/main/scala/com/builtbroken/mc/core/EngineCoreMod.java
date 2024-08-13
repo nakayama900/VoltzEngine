@@ -20,7 +20,7 @@ public class EngineCoreMod implements IFMLLoadingPlugin
     public static boolean devMode = false;
 
     /** Check to do downloads if enabled */
-    public static boolean doDownloads;
+    public static boolean doDownloads = false;
     /** Check to only run ASM if enabled */
     public static boolean enableASM;
 
@@ -28,19 +28,19 @@ public class EngineCoreMod implements IFMLLoadingPlugin
     {
         //TODO see if there is a better place to load this as a construct is not designed for downloading
         final boolean notDevMode = System.getProperty("development") == null || !System.getProperty("development").equalsIgnoreCase("true");
-        doDownloads = System.getProperty("disableDepDownloader") == null || !System.getProperty("disableDepDownloader").equalsIgnoreCase("true");
+        //doDownloads = System.getProperty("disableDepDownloader") == null || !System.getProperty("disableDepDownloader").equalsIgnoreCase("true");
         enableASM = System.getProperty("enableAsm") == null || System.getProperty("enableAsm").equalsIgnoreCase("true");
 
         devMode = !notDevMode;
 
-        if (notDevMode && doDownloads)
-        {
-            DepDownloader.load();
-        }
-        if (enableASM)
-        {
+        //if (notDevMode && doDownloads)
+        //{
+            //DepDownloader.load();
+        //}
+        //if (enableASM)
+        //{
             //TemplateManager.load();
-        }
+        //}
     }
 
     @Override
